@@ -1,95 +1,59 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import styles from "./page.module.scss";
+
+export default function CurrencyConverter() {
+  const [amount, setAmount] = useState(1);
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("INR");
+  // const [result, setResult] = useState(null);
+
+  const convert = async () => {
+    const res = await fetch(
+      `https://v6.exchangerate-api.com/v6/5a454e3ce7ae5f37ad317ee0/latest/ALL`
+    );
+    console.log(res.conversion_rates.AED);
+    
+    const data = await res.json();
+    setResult(data.result.toFixed(2));
+  };
+
+  useEffect(() => {
+    convert();
+  }, [amount, from, to]);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div >
+      <h1 className={styles.heading}>Currency Converter</h1>
+      <div className={styles.container}>
+        <label>Amount</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <label>From</label>
+        <select value={from} onChange={(e) => setFrom(e.target.value)}>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+          <option>INR</option>
+        </select>
+
+        <label>To</label>
+        <select value={to} onChange={(e) => setTo(e.target.value)}>
+          <option>INR</option>
+          <option>USD</option>
+          <option>EUR</option>
+          <option>GBP</option>
+        </select>
+      </div>
+
+      {/* <div className={styles.result}>
+        {result && `${amount} ${from} = ${result} ${to}`}
+      </div> */}
     </div>
   );
 }
