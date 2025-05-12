@@ -1,0 +1,36 @@
+.amountLabel{
+text-align: center;
+  margin-bottom: 2rem;
+color: #1a73e8;
+font-size: large;
+font-weight:bold;
+}
+.inputAmount{
+   width: 20%;
+   height: 5%;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  label {
+    font-weight: 600;
+    font-size: large;
+    justify-content:center;
+    
+  }
+
+  select,
+  input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+ 
+
+}
