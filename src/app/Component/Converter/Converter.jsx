@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import style from "./Conterver.module.scss";
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 import { CurrencyArray } from "../CurrencyName/CurrencyArray";
 
 const Converte = () => {
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState("");
   const [from, setFrom] = useState("USD");
   const [to, setTo] = useState("INR");
 
@@ -19,24 +21,26 @@ const Converte = () => {
       />
 
       <label>From</label>
-      <select value={from} onChange={(e) => setFrom(e.target.value)}>
-        {CurrencyArray.map((code, index) => (
-          <option key={index} value={code.code}>
-           {code.code} - {code.name}
-          </option>
-        ))}
-      </select>
-
+      <Autocomplete
+  disablePortal
+  options={CurrencyArray}
+  getOptionLabel={(option) => `${option.code} - ${option.name}`} 
+  sx={{ width: 300 }}
+  renderInput={(params) => <TextField {...params} label="Select Currency" />}
+/>
       <label>To</label>
-      <select value={to} onChange={(e) => setTo(e.target.value)}>
-        {CurrencyArray.map((code, index) => (
-          <option key={index} value={code.code}>
-            {code.code} - {code.name}
-          </option>
-        ))}
-      </select>
+      <Autocomplete
+  disablePortal
+  options={CurrencyArray}
+  getOptionLabel={(option) => `${option.code} - ${option.name}`} 
+  sx={{ width: 300 }}
+  renderInput={(params) => <TextField {...params} label="Select Currency" />}
+/>
     </div>
   );
 };
 
 export default Converte;
+
+
+
