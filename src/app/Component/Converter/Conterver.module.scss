@@ -17,9 +17,32 @@ font-weight:bold;
   padding-top: 2%;
   padding-bottom: 2%;
 
+   @media (max-width: 480px) {
+    flex-direction: column;
+   margin: 3%;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    flex-direction: column;
+    margin: 6%;
+  }
+
+ 
+  @media (min-width: 768px) and (max-width: 1024px) {
+     flex-direction: row;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+     flex-direction: row;
+  }
+
+  @media (min-width: 1441px) {
+     flex-direction: row;
+  }
+
   label {
-    font-weight: 600;
-    font-size: large;
+    // font-weight: 600;
+    font-size: small;
     justify-content:center;
     
   }
@@ -30,7 +53,53 @@ font-weight:bold;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
+
+     @media (max-width: 480px) {
+   font-size: 1rem;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+   font-size: 1rem;
+  }
+
+ 
+  @media (min-width: 768px) and (max-width: 1024px) {
+     font-size: 1rem;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 1441px) {
+     font-size: 2rem;
+  }
   }
  
 
+}
+
+
+.swapButton {
+  margin: 0.5rem;
+  border: 2% solid black;
+  border-radius: 2%;
+  // transform: rotate(90deg);
+  // transition: transform 0.3s ease;
+
+@media (max-width: 480px) {
+   transform: rotate(90deg);
+   transition: transform 0.3s ease;
+
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+
+  }
+
+  &:hover {
+    transform:  scale(1.2);
+  }
 }
