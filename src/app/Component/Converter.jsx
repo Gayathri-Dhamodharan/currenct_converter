@@ -27,13 +27,33 @@ const Converter = ({
 
   return (
     <div className={styles.inputGroup}>
+      {/* <label>Amount </label>
       <input
         type="number"
         value={amount}
         className={styles.amountInput}
         placeholder="Enter The Amount"
         onChange={(e) => setAmount(e.target.value)}
-      />
+      /> */}
+<TextField
+  type="number"
+  label="Amount"
+  variant="outlined"
+  value={amount}
+  onChange={(e) => setAmount(e.target.value)}
+  sx={{
+    width: { xs: "100%", sm: 250, md: 300, lg: 350, xl: 400 },
+    "& .MuiInputBase-root": {
+      height: {
+        xs: 58,
+        sm: 60,
+        md: 66,
+        lg: 75,
+        xl: 84,
+      },
+    },
+  }}
+/>
 
       {/* From Currency Autocomplete */}
       <Autocomplete

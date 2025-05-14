@@ -45,8 +45,9 @@ export default function CurrencyConverter() {
   }
 
   return (
-    <div>
+    <div className={styles.pagebg} style={{ backgroundColor: '#fff' }}>
       <h1 className={styles.heading}>Currency Converter</h1>
+
 
       <div className={styles.container}>
         <Converter
@@ -61,6 +62,8 @@ export default function CurrencyConverter() {
           styles={styles}
         />
       </div>
+            {/* <p className={styles.title} >Converted Amount </p> */}
+
 
       <div className={styles.container}>
         <Amount
