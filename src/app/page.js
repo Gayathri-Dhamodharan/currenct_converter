@@ -62,7 +62,6 @@ export default function CurrencyConverter() {
           styles={styles}
         />
       </div>
-            {/* <p className={styles.title} >Converted Amount </p> */}
 
 
       <div className={styles.container}>
