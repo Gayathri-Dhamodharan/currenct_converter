@@ -94,8 +94,9 @@ import React from "react";
 import style from "./Conterver.module.scss";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import SwapHorizIcon from "@mui/icons-material/SwapHoriz"; 
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import IconButton from "@mui/material/IconButton";
+import { CurrencyArray } from "../CurrencyName/CurrencyArray";
 
 const Converter = ({
   amount,
@@ -105,62 +106,94 @@ const Converter = ({
   to,
   setTo,
   currencyList,
-  currency,
 }) => {
   const handleSwap = () => {
     const prevFrom = from;
     setFrom(to);
     setTo(prevFrom);
-
-    console.log(currencyList, "currencyList");
-        console.log(currency, "currency");
-
   };
+
+  // Helper to get currency object from CurrencyArray
+  const getCurrency = (code) => CurrencyArray.find((c) => c.code === code);
 
   return (
     <div className={style.inputGroup}>
-      {/* <label>Amount</label> */}
       <input
         type="number"
         value={amount}
         placeholder="Enter The Amount"
         onChange={(e) => setAmount(Number(e.target.value))}
       />
-      {/* <label>From</label> */}
+
+      {/* From Currency Autocomplete */}
       <Autocomplete
         disablePortal
         options={currencyList}
         getOptionLabel={(option) => `${option.code}`}
-        sx={{
-          width: {
-            xs: "100%",
-            sm: 250,
-            md: 300,
-            lg: 350,
-            xl: 400,
-          },
-        }}
+        isOptionEqualToValue={(option, value) => option.code === value.code}
         value={currencyList.find((c) => c.code === from) || null}
         onChange={(e, newValue) => setFrom(newValue?.code || "")}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="From"
-            sx={{
-              "& .MuiInputBase-root": {
-                height: {
-                  xs: 58,
-                  sm: 60,
-                  md: 66,
-                  lg: 75,
-                  xl: 84,
+        renderOption={(props, option) => {
+          const currency = getCurrency(option.code);
+          return (
+            <li {...props}>
+              {currency && (
+                <img
+                  src={`https://flagcdn.com/48x36/${currency.countryCode.toLowerCase()}.png`}
+                  alt={currency.code}
+                  style={{
+                    width: 34,
+                    height: 24,
+                    objectFit: "cover",
+                    borderRadius: 2,
+                    marginRight: 8,
+                  }}
+                />
+              )}
+              {option.code}
+            </li>
+          );
+        }}
+        renderInput={(params) => {
+          const selectedCurrency = getCurrency(from);
+          return (
+            <TextField
+              {...params}
+              label="From"
+              InputProps={{
+                ...params.InputProps,
+                startAdornment: selectedCurrency && (
+                  <img
+                    src={`https://flagcdn.com/48x36/${selectedCurrency.countryCode.toLowerCase()}.png`}
+                    alt={selectedCurrency.code}
+                    style={{
+                      width: 34,
+                      height: 24,
+                      objectFit: "cover",
+                      borderRadius: 2,
+                      marginRight: 8,
+                    }}
+                  />
+                ),
+              }}
+              sx={{
+                "& .MuiInputBase-root": {
+                  height: {
+                    xs: 58,
+                    sm: 60,
+                    md: 66,
+                    lg: 75,
+                    xl: 84,
+                  },
                 },
-              },
-            }}
-          />
-        )}
+              }}
+            />
+          );
+        }}
+        sx={{ width: { xs: "100%", sm: 250, md: 300, lg: 350, xl: 400 } }}
       />
-      {/* swap button  */}
+
+      {/* Swap Button */}
       <IconButton
         onClick={handleSwap}
         className={style.swapButton}
@@ -169,42 +202,76 @@ const Converter = ({
         <SwapHorizIcon fontSize="large" />
       </IconButton>
 
-      {/* <label>To</label> */}
+      {/* To Currency Autocomplete */}
       <Autocomplete
         disablePortal
         options={currencyList}
         getOptionLabel={(option) => `${option.code}`}
-        sx={{
-          width: {
-            xs: "100%",
-            sm: 250,
-            md: 300,
-            lg: 350,
-            xl: 400,
-          },
-        }}
+        isOptionEqualToValue={(option, value) => option.code === value.code}
         value={currencyList.find((c) => c.code === to) || null}
         onChange={(e, newValue) => setTo(newValue?.code || "")}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="To"
-            sx={{
-              "& .MuiInputBase-root": {
-                height: {
-                  xs: 58,
-                  sm: 60,
-                  md: 66,
-                  lg: 75,
-                  xl: 84,
+        renderOption={(props, option) => {
+          const currency = getCurrency(option.code);
+          return (
+            <li {...props}>
+              {currency && (
+                <img
+                  src={`https://flagcdn.com/48x36/${currency.countryCode.toLowerCase()}.png`}
+                  alt={currency.code}
+                  style={{
+                    width: 24,
+                    height: 18,
+                    objectFit: "cover",
+                    borderRadius: 2,
+                    marginRight: 8,
+                  }}
+                />
+              )}
+              {option.code}
+            </li>
+          );
+        }}
+        renderInput={(params) => {
+          const selectedCurrency = getCurrency(to);
+          return (
+            <TextField
+              {...params}
+              label="To"
+              InputProps={{
+                ...params.InputProps,
+                startAdornment: selectedCurrency && (
+                  <img
+                    src={`https://flagcdn.com/48x36/${selectedCurrency.countryCode.toLowerCase()}.png`}
+                    alt={selectedCurrency.code}
+                    style={{
+                      width: 24,
+                      height: 18,
+                      objectFit: "cover",
+                      borderRadius: 2,
+                      marginRight: 8,
+                    }}
+                  />
+                ),
+              }}
+              sx={{
+                "& .MuiInputBase-root": {
+                  height: {
+                    xs: 58,
+                    sm: 60,
+                    md: 66,
+                    lg: 75,
+                    xl: 84,
+                  },
                 },
-              },
-            }}
-          />
-        )}
+              }}
+            />
+          );
+        }}
+        sx={{ width: { xs: "100%", sm: 250, md: 300, lg: 350, xl: 400 } }}
       />
     </div>
   );
 };
 
 export default Converter;
+

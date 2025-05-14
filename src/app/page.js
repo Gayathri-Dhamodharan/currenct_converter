@@ -6,6 +6,7 @@ import Converter from "./Component/Converter/Converter";
 import { currencyService } from "./Service/currencyService";
 import Amount from "./Component/Amount/Amount";
 import Table from "./Component/Table/Table";
+import Loading from "./Component/Loading/Loading";
 
 export default function CurrencyConverter() {
   const [amount, setAmount] = useState("1");
@@ -14,6 +15,7 @@ export default function CurrencyConverter() {
   const [result, setResult] = useState(null);
   const [currencyList, setCurrencyList] = useState([]);
   const [currency, setCurrency] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Loader flag
 
   const convert = async () => {
     const response = await currencyService(from);
@@ -21,19 +23,26 @@ export default function CurrencyConverter() {
 
     setCurrencyList(response.currencyList);
     setCurrency(response.currency);
-    console.log("currency", currency);
 
     const rate = response.data.conversion_rates[to];
-    console.log(rate, "rate");
-
     const converted = rate * amount;
     setResult(converted.toFixed(2));
   };
 
   useEffect(() => {
     convert();
-    console.log("currency", currency);
   }, [amount, from, to]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 10000); 
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
