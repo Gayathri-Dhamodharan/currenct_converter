@@ -140,7 +140,7 @@ export const CurrencyArray = [
   { code: "VUV", symbol: "Vt", name: "Vanuatu Vatu", countryCode: "vu" },
   { code: "WST", symbol: "T", name: "Samoan Tala", countryCode: "ws" },
   { code: "XAF", symbol: "FCFA", name: "CFA Franc", countryCode: "cm" },
-  { code: "XAG", symbol: "oz", name: "Silver (1 oz)", countryCode: "international" },
+  { code: "XAG", symbol: "oz", name: "Silver (1 oz)", countryCode: "ss" },
   { code: "XAU", symbol: "oz", name: "Gold (1 oz)", countryCode: "international" },
   { code: "XBT", symbol: "BTC", name: "Bitcoin", countryCode: "international" },
   { code: "XCD", symbol: "$", name: "East Caribbean Dollar", countryCode: "bb" },
@@ -149,6 +149,21 @@ export const CurrencyArray = [
   { code: "YER", symbol: "ر.ي", name: "Yemeni Rial", countryCode: "ye" },
   { code: "ZAR", symbol: "R", name: "South African Rand", countryCode: "za" },
   { code: "ZMW", symbol: "ZK", name: "Zambian Kwacha", countryCode: "zm" },
-  { code: "ZWL", symbol: "$", name: "Zimbabwean Dollar", countryCode: "zw" }
-  
+  { code: "ZWL", symbol: "$", name: "Zimbabwean Dollar", countryCode: "zw" },
+   { code: "IMP", symbol: "£", name: "Isle of Man Pound", countryCode: "im" },
+  { code: "KID", symbol: "$", name: "Kiribati Dollar", countryCode: "ki" },
+  { code: "KMF", symbol: "CF", name: "Comorian Franc", countryCode: "km" },
+  { code: "KYD", symbol: "$", name: "Cayman Islands Dollar", countryCode: "ky" },
+  { code: "MRU", symbol: "UM", name: "Mauritanian Ouguiya", countryCode: "mr" },
+  { code: "NIO", symbol: "C$", name: "Nicaraguan Córdoba", countryCode: "ni" },
+  { code: "PGK", symbol: "K", name: "Papua New Guinean Kina", countryCode: "pg" },
+  { code: "PYG", symbol: "₲", name: "Paraguayan Guarani", countryCode: "py" },
+  { code: "RWF", symbol: "FRw", name: "Rwandan Franc", countryCode: "rw" },
+  { code: "SLE", symbol: "Le", name: "Sierra Leonean Leone", countryCode: "sl" },
+  { code: "TVD", symbol: "$", name: "Tuvaluan Dollar", countryCode: "tv" },
+  { code: "USD", symbol: "$", name: "United States Dollar", countryCode: "us" },
+  { code: "VES", symbol: "Bs.", name: "Venezuelan Bolívar", countryCode: "ve" },
+  { code: "XCG", symbol: "XCG", name: "Crypto Gold", countryCode: "xx" },
+  { code: "XDR", symbol: "SDR", name: "IMF Special Drawing Rights", countryCode: "un" },
+  { code: "JEP", symbol: "£", name: "Jersey Pound", countryCode: "je" }
 ];

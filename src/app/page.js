@@ -2,20 +2,20 @@
 
 import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
-import Converter from "./Component/Converter/Converter";
+import Converter from "./Component/Converter";
 import { currencyService } from "./Service/currencyService";
-import Amount from "./Component/Amount/Amount";
-import Table from "./Component/Table/Table";
-import Loading from "./Component/Loading/Loading";
+import Amount from "./Component/Amount";
+import Table from "./Component/Table";
+import Loading from "./Component/Loading";
 
 export default function CurrencyConverter() {
-  const [amount, setAmount] = useState("1");
+  const [amount, setAmount] = useState(1);
   const [from, setFrom] = useState("INR");
   const [to, setTo] = useState("USD");
   const [result, setResult] = useState(null);
   const [currencyList, setCurrencyList] = useState([]);
   const [currency, setCurrency] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Loader flag
+  const [isLoading, setIsLoading] = useState(true);
 
   const convert = async () => {
     const response = await currencyService(from);
@@ -36,12 +36,12 @@ export default function CurrencyConverter() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 10000); 
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return <Loading styles={styles} />;
   }
 
   return (
@@ -58,6 +58,7 @@ export default function CurrencyConverter() {
           setTo={setTo}
           currencyList={currencyList}
           currency={currency}
+          styles={styles}
         />
       </div>
 
@@ -72,7 +73,7 @@ export default function CurrencyConverter() {
       </div>
 
       <div className={styles.container}>
-        <Table currency={currency} />
+        <Table currency={currency} from={from} to={to} styles={styles} />
       </div>
     </div>
   );

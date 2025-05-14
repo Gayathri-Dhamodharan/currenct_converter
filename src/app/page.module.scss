@@ -37,34 +37,36 @@
 .heading {
   text-align: center;
   margin-bottom: 2rem;
-  color: #fff;
-  background-color: #0a8f8f;
+  background-color: #000a0a;
+    color: #dbbb2c;
   width: 100%;
+  height: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 2px;
+  // margin: 10px;
 
   // Base size
   font-size: 20px; 
 
   @media (max-width: 480px) {
-    font-size: 1rem; // ~16px
+    font-size:26px;
   }
 
   @media (min-width: 481px) and (max-width: 767px) {
-    font-size: 1.125rem; // ~18px
+    font-size:18px;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    font-size: 1.375rem; // ~22px
+    font-size: 22px;
   }
 
   @media (min-width: 1025px) and (max-width: 1440px) {
-    font-size: 1.5rem; // ~24px
+    font-size: 28px;
   }
 
   @media (min-width: 1441px) {
-    font-size: 38px
+    font-size: 38px;
   }
 }
 
@@ -83,8 +85,7 @@
   margin-bottom: 3%;
 }
 
-
-
+// result component scss
 .resultvalue {
   text-align: center;
   font-weight: bold;
@@ -97,33 +98,262 @@
     text-align: center;
   font-weight: bold;
   font-size: 30px;
+      padding: 2px;
   @media (max-width: 480px) {
     font-size:9px;
-    padding: 2px;
   }
 
   @media (min-width: 481px) and (max-width: 767px) {
-    font-size: 10px;
-        padding: 2px;
-
+    font-size: 14px;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    font-size: 12px;
-        padding: 2px;
-
+    font-size: 16px;
   }
 
   @media (min-width: 1025px) and (max-width: 1440px) {
-    font-size: 20px;
-        padding: 2px;
-
+    font-size: 25px;
   }
 
   @media (min-width: 1441px) {
-    font-size: 30px;
-        padding: 2px;
+    font-size: 35px;
+  }
+  }
+}
+
+// loading component scss
+
+.videowrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  // background-color: aquamarine;
+
+  video {
+    width: 190vh;
+    height: 100vh;
+    object-fit: contain;
+
+    @media (max-width: 1024px) {
+      width: 100vw;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      width: 100vw;
+      height: auto;
+    }
+
+    @media (max-width: 480px) {
+      width: 100vw;
+      height: auto;
+    }
+  }
+}
+
+
+// table component
+
+.customtablecontainer {
+  margin: 1rem auto;
+  max-width: 100%;
+  overflow-x:scroll;
+   justify-content: center;
+  align-items: center;
+}
+
+.customtable {
+  min-width: 650px;
+  justify-content: center;
+  align-items: center;
+
+  th {
+    background-color: #000a0a;
+    color: #dbbb2c;
+    font-weight: bold;
+    
+    
+        font-size: 14px;
+        @media (min-width: 480px){
+       font-size: 14px;
+        }
+        @media (min-width:768px){
+        font-size: 20px;
+        }
+        @media (min-width:1024px){
+        font-size: 24px;
+        }
+        @media (min-width: 1440px)
+        {
+          font-size:26px;
+        }
+         @media (min-width: 2560px)
+        {
+          font-size:36px;
+        }
 
   }
+
+  td {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+
+    @media (min-width: 480px){
+       font-size: 0.80rem;
+        }
+        @media (min-width:768px){
+        font-size: 0.90rem;
+        }
+        @media (min-width:1024px){
+        font-size: 0.95rem;
+        }
+        @media (min-width: 1440px)
+        {
+          font-size:0.98rem;
+        }
+        @media (min-width: 2560px)
+        {
+          font-size:1.98rem;
+        }
+  }
+
+  .flag {
+    width: 34px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 4px;
+
+
+  }
+}
+
+
+// converter component scss
+.amountLabel{
+text-align: center;
+  margin-bottom: 2rem;
+color: #1a73e8;
+font-size: large;
+font-weight:bold;
+}
+.inputAmount{
+   width: 20%;
+   height: 5%;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  // padding-top: 2%;
+  // padding-bottom: 2%;
+
+   @media (max-width: 480px) {
+    flex-direction: column;
+   margin: 3%;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    flex-direction: column;
+    margin: 6%;
+  }
+
+ 
+  @media (min-width: 768px) and (max-width: 1024px) {
+     flex-direction: row;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+     flex-direction: row;
+  }
+
+  @media (min-width: 1441px) {
+     flex-direction: row;
+  }
+
+  label {
+    // font-weight: 600;
+    font-size: small;
+    justify-content:center;
+    
+  }
+
+  select,
+  input {
+    padding-left: 0.75rem;
+    padding-top:0.25rem ;
+    padding-bottom:0.25rem ;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+      // height:100%;
+      // width:30%;
+
+
+     @media (max-width: 480px) {
+   font-size: 1rem;
+   padding-left: 0.75rem;
+    padding-top:0.25rem ;
+    padding-bottom:0.25rem ;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+   font-size: 1rem;
+   padding-left: 0.75rem;
+    padding-top:0.25rem ;
+    padding-bottom:0.25rem ;
+  }
+
+ 
+  @media (min-width: 768px) and (max-width: 1024px) {
+     font-size: 1rem;
+     padding-left: 0.75rem;
+    padding-top:0.25rem ;
+    padding-bottom:0.25rem ;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    font-size: 1rem;
+    padding-left: 0.75rem;
+    padding-top:0.25rem ;
+    padding-bottom:0.25rem ;
+  
+  }
+
+  @media (min-width: 1441px) {
+     font-size: 2rem;
+     padding-left: 0.75rem;
+    padding-top:0.25rem ;
+    padding-bottom:0.25rem ;
+  }
+  }
+ 
+
+}
+
+
+.swapButton {
+  margin: 0.5rem;
+  border: 2% solid black;
+  border-radius: 2%;
+  // transform: rotate(90deg);
+  // transition: transform 0.3s ease;
+
+@media (max-width: 480px) {
+   transform: rotate(90deg);
+   transition: transform 0.3s ease;
+
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+
+  }
+
+  &:hover {
+    transform:  scale(1.2);
   }
 }
