@@ -30,6 +30,7 @@ const Converter = ({
       <input
         type="number"
         value={amount}
+        className={styles.amountInput}
         placeholder="Enter The Amount"
         onChange={(e) => setAmount(e.target.value)}
       />
@@ -59,7 +60,7 @@ const Converter = ({
                   }}
                 />
               )}
-              {option.code}
+              {option.code}- ({currency?.name || ""})
             </li>
           );
         }}
@@ -105,7 +106,7 @@ const Converter = ({
       {/* Swap Button */}
       <IconButton
         onClick={handleSwap}
-        className={styles.swapButton}
+        // className={styles.swapButton}
         aria-label="swap currencies"
       >
         <SwapHorizIcon fontSize="large" />
@@ -136,7 +137,7 @@ const Converter = ({
                   }}
                 />
               )}
-              {option.code}
+              {option.code}- ({currency?.name || ""})
             </li>
           );
         }}
