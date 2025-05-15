@@ -25,16 +25,12 @@ const Converter = ({
   // Helper to get currency object from CurrencyArray
   const getCurrency = (code) => CurrencyArray.find((c) => c.code === code);
 
-  return (
+  return (<>
+    <h4 className={styles.converterheading}>
+Convert currencies instantly with ease.</h4>
     <div className={styles.inputGroup}>
-      {/* <label>Amount </label>
-      <input
-        type="number"
-        value={amount}
-        className={styles.amountInput}
-        placeholder="Enter The Amount"
-        onChange={(e) => setAmount(e.target.value)}
-      /> */}
+     
+
 <TextField
   type="number"
   label="Amount"
@@ -200,7 +196,7 @@ const Converter = ({
         sx={{ width: { xs: "100%", sm: 250, md: 300, lg: 350, xl: 400 } }}
       />
     </div>
-  );
+  </>);
 };
 
 export default Converter;

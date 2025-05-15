@@ -1,7 +1,3 @@
-.pagebg{
-  background-color: #401111;
-}
-
 
 .container {
   max-width: 1200px;
@@ -45,9 +41,6 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 2px;
-  // margin: 10px;
-
-  // Base size
   font-size: 20px; 
 
   @media (max-width: 480px) {
@@ -70,7 +63,6 @@
     font-size: 38px;
   }
 }
-
 
 .container {
   margin: 3rem auto;
@@ -159,87 +151,85 @@
 // table component
 
 .customtablecontainer {
-
   margin: 1rem auto;
-  max-width: 100%;
-  overflow-x:scroll;
-   justify-content: center;
-  align-items: center;
-  margin: 1rem auto;
-  max-width: 100%;
-  height: 400px; 
-  overflow-y: auto; 
-  overflow-x: auto; 
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+  display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 
   @media (min-width: 1024px) {
-    height: 600px; 
+    height: 600px;
   }
-   @media (min-width: 1440px)
-        {
-            height: 600px; 
-        }
+
+  @media (min-width: 1440px) {
+    height: 600px;
+  }
 }
 
 .customtable {
-  min-width: 650px;
-  justify-content: center;
-  align-items: center;
-   height: 50%;
+  width: 100%;
+  min-width: unset;
+  table-layout: auto;
+
+  @media (max-width: 480px) {
+    min-width: 200px;
+  }
+
+  @media (min-width: 768px) {
+    min-width: 600px;
+  }
+  
+  @media (min-width: 1024px) {
+    min-width: 680px;
+  }
 
   th {
     background-color: #000a0a;
     color: #dbbb2c;
     font-weight: bold;
     position: sticky;
-  top: 0;
-  background-color: #000a0a;
-  z-index: 1;
-    
-    
-        font-size: 14px;
-        @media (min-width: 480px){
-       font-size: 14px;
-        }
-        @media (min-width:768px){
-        font-size: 20px;
-        }
-        @media (min-width:1024px){
-        font-size: 24px;
-        }
-        @media (min-width: 1440px)
-        {
-          font-size:26px;
-        }
-         @media (min-width: 2560px)
-        {
-          font-size:36px;
-        }
+    top: 0;
+    z-index: 1;
+    font-size: 14px;
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
 
+    @media (min-width: 1024px) {
+      font-size: 24px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 26px;
+    }
+
+    @media (min-width: 2560px) {
+      font-size: 36px;
+    }
   }
 
   td {
     padding: 8px 12px;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 
-    @media (min-width: 480px){
-       font-size: 0.80rem;
-        }
-        @media (min-width:768px){
-        font-size: 0.90rem;
-        }
-        @media (min-width:1024px){
-        font-size: 0.95rem;
-        }
-        @media (min-width: 1440px)
-        {
-          font-size:0.98rem;
-        }
-        @media (min-width: 2560px)
-        {
-          font-size:1.98rem;
-        }
+    @media (min-width: 768px) {
+      font-size: 0.90rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 0.98rem;
+    }
+
+    @media (min-width: 2560px) {
+      font-size: 1.98rem;
+    }
   }
 
   .flag {
@@ -247,20 +237,36 @@
     height: 20px;
     object-fit: cover;
     border-radius: 4px;
-
-
   }
 }
 
 
+
+
 // converter component scss
-.amountLabel{
-text-align: center;
+.converterheading {
+  text-align: center;
   margin-bottom: 2rem;
-color: #1a73e8;
-font-size: large;
-font-weight:bold;
+  font-weight: bold;
+    font-size: 0.6rem;
+
+  @media (min-width: 480px) {
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.4rem;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 1.6rem;
+  }
 }
+
 .inputAmount{
    width: 20%;
    height: 5%;
@@ -271,8 +277,7 @@ font-weight:bold;
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
-  // padding-top: 2%;
-  // padding-bottom: 2%;
+  
 
    @media (max-width: 480px) {
     flex-direction: column;
