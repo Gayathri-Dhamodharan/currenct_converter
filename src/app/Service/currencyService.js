@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = "https://v6.exchangerate-api.com/v6";
-const API_KEY = "5a454e3ce7ae5f37ad317ee0";
+const API_KEY = "9dd7c09c4f07114418d8698a";
 
 export const currencyService = async (baseCurrency = "INR") => {
   try {
