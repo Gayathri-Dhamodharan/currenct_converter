@@ -211,8 +211,8 @@ const Table = ({ currency, styles }) => {
             <TableRow>
               <TableCell></TableCell>
               <TableCell>Code</TableCell>
-              <TableCell>Country</TableCell>
-              <TableCell>Currency</TableCell>
+              <TableCell sx={{ display: { xs: "none", sm: "table-cell" } }}>Country</TableCell>
+              <TableCell sx={{ display: { xs: "none", sm: "table-cell" } }}>Currency</TableCell>
               <Tooltip title={`Value of 1 ${baseCurrencyCode} in this currency`}>
                 <TableCell>Rate </TableCell>
               </Tooltip>
@@ -234,8 +234,8 @@ const Table = ({ currency, styles }) => {
                   )}
                 </TableCell>
                   <TableCell>{c.code}</TableCell>
-                <TableCell>{c.name?.split(" ")[0] || "-"}</TableCell>
-                <TableCell>{c.name || "-"}</TableCell>
+                <TableCell sx={{ display: { xs: "none", sm: "table-cell" } }}>{c.name?.split(" ")[0] || "-"}</TableCell>
+                <TableCell sx={{ display: { xs: "none", sm: "table-cell" } }}>{c.name || "-"}</TableCell>
                 <TableCell>{c.rate}</TableCell>
               </TableRow>
             ))}
